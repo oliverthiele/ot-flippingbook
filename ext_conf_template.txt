@@ -1,0 +1,2 @@
+# cat=General/links/a1; type=string; label=FlippingBook Directory:Default: public/flippingbook/
+flippingBookDirectory = public/flippingbook/

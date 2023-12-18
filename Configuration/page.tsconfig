@@ -1,0 +1,17 @@
+mod.wizards.newContentElement.wizardItems.extras {
+  header = Extras
+  elements {
+    ot_flippingbook {
+      iconIdentifier = icon-flippingbook
+      title = LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:wizard.title
+      description = LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:wizard.description
+      tt_content_defValues {
+        CType = ot_flippingbook
+        header = CE FlippingBook
+        header_layout = 100
+      }
+    }
+  }
+
+  show := addToList(ot_flippingbook)
+}

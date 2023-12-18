@@ -1,0 +1,50 @@
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>
+                        LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:tt_content.pi_flexform.sheet_general
+                    </sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <flippingBook>
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:tt_content.pi_flexform.sheet_general.flippingBook
+                            </label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <itemsProcFunc>
+                                    OliverThiele\OtFlippingbook\UserFunc\FlexFormUserFunc->getFlippingBooks
+                                </itemsProcFunc>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0"></numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </flippingBook>
+                    <page>
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:tt_content.pi_flexform.sheet_general.page
+                            </label>
+                            <config>
+                                <type>input</type>
+                                <eval>trim,int</eval>
+                            </config>
+                        </TCEforms>
+                    </page>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>
