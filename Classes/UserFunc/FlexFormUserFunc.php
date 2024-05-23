@@ -47,7 +47,7 @@ class FlexFormUserFunc
 
                 foreach ($directory as $subKey => $subDirectory) {
                     $fConfig['items'][] = [
-                        str_replace($key . '/', '', $subDirectory),
+                        str_replace($key . '/', '', (string) $subDirectory),
                         $subDirectory
                     ];
                 }
@@ -59,20 +59,20 @@ class FlexFormUserFunc
     {
         $result = [];
 
-        $baseDir = rtrim($baseDir, '/');
+        $baseDir = rtrim((string) $baseDir, '/');
 
         $removePath = $baseDir;
 
         $firstLevelDirs = glob($baseDir . '/*', GLOB_ONLYDIR);
 
         foreach ($firstLevelDirs as $dir) {
-            $relativeDir = str_replace($removePath, '', $dir);
+            $relativeDir = str_replace($removePath, '', (string) $dir);
 
             $result[$relativeDir] = [];
 
             $secondLevelDirs = glob($dir . '/*', GLOB_ONLYDIR);
             foreach ($secondLevelDirs as $subDir) {
-                $relativeSubDir = str_replace($removePath, '', $subDir);
+                $relativeSubDir = str_replace($removePath, '', (string) $subDir);
                 $result[$relativeDir][] = $relativeSubDir;
             }
         }
