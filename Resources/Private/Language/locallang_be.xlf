@@ -19,8 +19,11 @@
 			<trans-unit id="tt_content.pi_flexform.sheet_general.flippingBook" resname="tt_content.pi_flexform.sheet_general.flippingBook">
 				<source>FlippingBook</source>
 			</trans-unit>
-			<trans-unit id="tt_content.pi_flexform.sheet_general.page" resname="tt_content.sheet_general.pi_flexform.page">
+			<trans-unit id="tt_content.pi_flexform.sheet_general.page" resname="tt_content.pi_flexform.sheet_general.page">
 				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="tt_content.tab.configuration" resname="tt_content.tab.configuration">
+				<source>Configuration</source>
 			</trans-unit>
 		</body>
 	</file>

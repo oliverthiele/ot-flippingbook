@@ -2,7 +2,7 @@
 
 ## TYPO3 Extension
 
-This extension for TYPO3 v11.5 allows the output of FlippingBooks.
+This extension allows the output of FlippingBooks in TYPO3.
 
 ### Installation
 
@@ -44,4 +44,4 @@ In the content element, the select box appears with this structure:
         catalog-2024/
 
 The FluidTemplate of the extension then automatically integrates the JavaScript file
-_.../files/html/static/embed.js_ from the FlippingBook folders.
+_…/files/html/static/embed.js_ from the FlippingBook folders.
