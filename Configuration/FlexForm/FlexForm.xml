@@ -33,8 +33,8 @@
                             LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:tt_content.pi_flexform.sheet_general.page
                         </label>
                         <config>
-                            <type>input</type>
-                            <eval>trim,int</eval>
+                            <type>number</type>
+                            <format>integer</format>
                         </config>
                     </page>
                 </el>

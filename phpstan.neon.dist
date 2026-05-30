@@ -1,0 +1,30 @@
+# ============================================================
+# PHPStan configuration for ot-flippingbook (TYPO3 Extension)
+# ============================================================
+
+includes:
+  - ../../vendor/saschaegerer/phpstan-typo3/extension.neon
+
+parameters:
+  level: 8
+  paths:
+    - Classes/
+  tmpDir: ../../var/cache/phpstan/ot-flippingbook
+  reportUnmatchedIgnoredErrors: false
+  checkUninitializedProperties: true
+
+  ignoreErrors:
+    # TYPO3 globals
+    - '#\$GLOBALS\[''TYPO3_REQUEST''\]#'
+    - '#Constant TYPO3_MODE not found#'
+
+    # itemsProcFunc: $fConfig['items'] is mixed in the TYPO3 API signature
+    - '#Cannot use array push on array element of mixed type#'
+
+    # Dynamic array keys in TYPO3 configuration arrays
+    - '#has no value type specified in iterable type array#'
+
+  scanDirectories:
+    - ../../vendor
+  scanFiles:
+    - ../../vendor/autoload.php

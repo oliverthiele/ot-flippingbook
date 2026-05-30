@@ -10,9 +10,6 @@ use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-/**
- * Class FlexFormUserFunc
- */
 class FlexFormUserFunc
 {
     /**
@@ -28,55 +25,65 @@ class FlexFormUserFunc
             ExtensionConfiguration::class
         )->get('ot_flippingbook');
 
-
         if (is_array($extensionSettings) && is_string(
-                $extensionSettings['flippingBookDirectory']
-            ) && $extensionSettings['flippingBookDirectory'] !== '') {
-            $directoryFlippingBooks = $publicPath . $extensionSettings['flippingBookDirectory'];
+            $extensionSettings['flippingBookDirectory']
+        ) && $extensionSettings['flippingBookDirectory'] !== '') {
+            $directoryFlippingBooks = $this->normalizePath(
+                $publicPath . '/' . $extensionSettings['flippingBookDirectory']
+            );
         }
 
         if (isset($directoryFlippingBooks) && is_dir($directoryFlippingBooks)) {
             $directories = $this->getDirectoriesTwoLevels($directoryFlippingBooks);
 
-
             foreach ($directories as $key => $directory) {
                 $fConfig['items'][] = [
-                    $key,
-                    '--div--'
+                    'label' => $key,
+                    'value' => '--div--',
                 ];
 
-                foreach ($directory as $subKey => $subDirectory) {
+                foreach ($directory as $subDirectory) {
                     $fConfig['items'][] = [
-                        str_replace($key . '/', '', (string) $subDirectory),
-                        $subDirectory
+                        'label' => str_replace($key . '/', '', $subDirectory),
+                        'value' => $subDirectory,
                     ];
                 }
             }
         }
     }
 
-    protected function getDirectoriesTwoLevels($baseDir): array
+    protected function normalizePath(string $path): string
     {
-        $result = [];
-
-        $baseDir = rtrim((string) $baseDir, '/');
-
-        $removePath = $baseDir;
-
-        $firstLevelDirs = glob($baseDir . '/*', GLOB_ONLYDIR);
-
-        foreach ($firstLevelDirs as $dir) {
-            $relativeDir = str_replace($removePath, '', (string) $dir);
-
-            $result[$relativeDir] = [];
-
-            $secondLevelDirs = glob($dir . '/*', GLOB_ONLYDIR);
-            foreach ($secondLevelDirs as $subDir) {
-                $relativeSubDir = str_replace($removePath, '', (string) $subDir);
-                $result[$relativeDir][] = $relativeSubDir;
-            }
-        }
-        return $result;
+        return preg_replace('#/{2,}#', '/', $path) ?? $path;
     }
 
+    /**
+     * @return array<string, list<string>>
+     */
+    protected function getDirectoriesTwoLevels(string $baseDirectory): array
+    {
+        $result = [];
+        $baseDirectory = rtrim($baseDirectory, '/');
+
+        $firstLevelDirectories = glob($baseDirectory . '/*', GLOB_ONLYDIR);
+        if ($firstLevelDirectories === false) {
+            return $result;
+        }
+
+        foreach ($firstLevelDirectories as $directory) {
+            $relativeDirectory = str_replace($baseDirectory, '', $directory);
+            $result[$relativeDirectory] = [];
+
+            $secondLevelDirectories = glob($directory . '/*', GLOB_ONLYDIR);
+            if ($secondLevelDirectories === false) {
+                continue;
+            }
+
+            foreach ($secondLevelDirectories as $subDirectory) {
+                $result[$relativeDirectory][] = str_replace($baseDirectory, '', $subDirectory);
+            }
+        }
+
+        return $result;
+    }
 }
