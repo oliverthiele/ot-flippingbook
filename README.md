@@ -1,47 +1,83 @@
-# EXT:ot_flippingbook
+# ot_flippingbook — FlippingBook Content Element for TYPO3
 
-## TYPO3 Extension
+Adds a content element to embed [FlippingBook Publisher](https://flippingbook.com/) documents in TYPO3. Catalogs are
+organised in a two-level folder structure; the backend select shows grouped books automatically.
 
-This extension allows the output of FlippingBooks in TYPO3.
+[![TYPO3](https://img.shields.io/badge/TYPO3-13.4-orange.svg)](https://typo3.org/)
+[![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-flippingbook.svg)](https://packagist.org/packages/oliverthiele/ot-flippingbook)
+[![PHP](https://img.shields.io/packagist/dependency-v/oliverthiele/ot-flippingbook/php.svg)](https://php.net/)
+[![License](https://img.shields.io/packagist/l/oliverthiele/ot-flippingbook.svg)](LICENSE)
+[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](CHANGELOG.md)
 
-### Installation
+## Features
 
-Composer Installation
+- TYPO3 v13 and v14 compatible (Site Set ready)
+- Embed via the official FlippingBook JavaScript embed script
+- Two-level catalog folder structure with grouped backend select
+- Configurable base directory via Extension Configuration
+- Optional start page per content element (FlexForm)
+- TypoScript auto-included via Site Set
 
-```shell
+## Requirements
+
+| Requirement | Version        |
+|-------------|----------------|
+| TYPO3       | ^13.4 \| ^14.3 |
+| PHP         | >=8.2          |
+
+## Installation
+
+```bash
 composer require oliverthiele/ot-flippingbook
 ```
 
-Don't forget to add the TypoScript in your root template.
+After installation, activate the **Site Set "OtFlippingbook"** for your site in the TYPO3 backend.
 
-### Configuration
+## Configuration
 
-The path to the FlippingBooks can be defined in the extension configuration.
-By default, `public/flippingbook/` is preconfigured.
-All subfolders of this folder are automatically output as an optgroup in the content element.
-The sub-subfolders must then contain the generated FlippingBooks.
+### Extension Configuration
 
-#### Example
+Set the base directory in the TYPO3 Extension Manager under **ot_flippingbook**:
 
-The following folder structure for 4 catalogs is in the public folder:
+| Key                     | Default                | Description                                  |
+|-------------------------|------------------------|----------------------------------------------|
+| `flippingBookDirectory` | `public/flippingbook/` | Filesystem path relative to the project root |
 
-    public/
-        flippingbook/
-            kataloge_de/
-                katalog-2023/
-                katalog-2024/
-            catalogs_en/
-                catalog-2023/
-                catalog-2024/
+### Folder Structure
 
-In the content element, the select box appears with this structure:
+The extension reads two levels of sub-directories. The first level becomes the optgroup label; the second level contains
+the selectable books:
 
-    kataloge_de/
-        katalog-2023/
-        katalog-2024/
-    catalogs_en/
-        catalog-2023/
-        catalog-2024/
+```
+public/
+└── flippingbook/
+    ├── catalogs_en/
+    │   ├── catalog-2023/
+    │   └── catalog-2024/
+    └── kataloge_de/
+        ├── katalog-2023/
+        └── katalog-2024/
+```
 
-The FluidTemplate of the extension then automatically integrates the JavaScript file
-_…/files/html/static/embed.js_ from the FlippingBook folders.
+The backend select displays the books grouped by their parent folder.
+
+### TypoScript
+
+TypoScript is auto-included via the Site Set. For manual integration without Site Set:
+
+```typoscript
+@import 'EXT:ot_flippingbook/Configuration/TypoScript/constants.typoscript'
+@import 'EXT:ot_flippingbook/Configuration/TypoScript/setup.typoscript'
+```
+
+## Usage
+
+1. Create a new content element and select **FlippingBook** as the content type.
+2. Select the book from the dropdown.
+3. Optionally enter a start page number.
+
+The extension generates the embed `<a>` tag and loads the FlippingBook `embed.js` from the selected book's directory.
+
+## License
+
+GPL-2.0-or-later — © 2025 Oliver Thiele

@@ -1,7 +1,7 @@
 {
 	"name": "oliverthiele/ot-flippingbook",
 	"type": "typo3-cms-extension",
-	"description": "TYPOP3 content element for the integration of documents created with the FlippingBook Publisher (https://flippingbook.com/digital-publishing-software)",
+	"description": "CE FlippingBooks - TYPO3 content element for the integration of documents created with the FlippingBook Publisher (https://flippingbook.com/digital-publishing-software)",
 	"homepage": "https://www.oliver-thiele.de/",
 	"authors": [
 		{
@@ -15,12 +15,19 @@
 		"GPL-2.0-or-later"
 	],
 	"keywords": [
-		"TYPO3 CMS"
+		"typo3",
+		"flippingbook",
+		"content element",
+		"embed",
+		"catalog"
 	],
 	"require": {
-		"typo3/cms-core": "^13.4"
+		"php": ">=8.2",
+		"typo3/cms-core": "^13.4||^14.3"
 	},
 	"require-dev": {
+		"phpstan/phpstan": "^2.1",
+		"saschaegerer/phpstan-typo3": "^3.0",
 		"roave/security-advisories": "dev-latest"
 	},
 	"autoload": {
@@ -32,5 +39,9 @@
 		"typo3/cms": {
 			"extension-key": "ot_flippingbook"
 		}
+	},
+	"support": {
+		"issues": "https://github.com/oliverthiele/ot-flippingbook/issues",
+		"source": "https://github.com/oliverthiele/ot-flippingbook"
 	}
 }

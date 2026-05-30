@@ -14,17 +14,14 @@ call_user_func(
                 'description' => 'LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:wizard.description',
                 'value' => 'ot_flippingbook',
                 'icon' => 'icon-flippingbook',
-                'group' => 'plugins'
+                'group' => 'plugins',
             ],
             'CType',
             'ot_flippingbook'
         );
 
-        ExtensionManagementUtility::addPiFlexFormValue(
-            '*',
-            'FILE:EXT:ot_flippingbook/Configuration/FlexForm/FlexForm.xml',
-            'ot_flippingbook',
-        );
+        $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,ot_flippingbook']
+            = 'FILE:EXT:ot_flippingbook/Configuration/FlexForm/FlexForm.xml';
 
         /************************
          * Configure element type
