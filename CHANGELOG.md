@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.2] — 2026-07-31
+
+### Fixed
+
+- `addPlugin()` call was missing the required third `$extensionKey` argument, causing a fatal `InvalidArgumentException` on every request under TYPO3 v13.4. The FlexForm path had been passed as the second argument, which is the `$type` parameter, leaving `$extensionKey` unset
+- FlexForm registration was lost entirely in 2.1.1 (backend showed the generic core fallback form instead of the configured fields); restored via `addPiFlexFormValue()`, the officially documented TYPO3 v13.4 migration path for CType FlexForm registration ([list_type-to-CType migration guide](https://docs.typo3.org/m/typo3/reference-coreapi/13.4/en-us/ApiOverview/ContentElements/MigrationListType.html))
+
 ## [2.1.1] — 2026-05-30
 
 ### Fixed
@@ -57,6 +64,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - FlexForm for book selection and optional start page
 - Extension Configuration for configurable base directory
 
+[2.1.2]: https://github.com/oliverthiele/ot-flippingbook/compare/v2.1.1...v2.1.2
+[2.1.1]: https://github.com/oliverthiele/ot-flippingbook/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/oliverthiele/ot-flippingbook/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/oliverthiele/ot-flippingbook/compare/v1.0.1...v2.0.0
 [1.0.1]: https://github.com/oliverthiele/ot-flippingbook/compare/v1.0.0...v1.0.1
