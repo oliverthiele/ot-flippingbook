@@ -16,7 +16,16 @@ call_user_func(
                 'icon' => 'icon-flippingbook',
                 'group' => 'plugins',
             ],
-            'FILE:EXT:ot_flippingbook/Configuration/FlexForm/FlexForm.xml'
+            'CType',
+            'ot_flippingbook'
+        );
+
+        // Official TYPO3 v13.4 list_type-to-CType migration path for FlexForm registration,
+        // see: https://docs.typo3.org/m/typo3/reference-coreapi/13.4/en-us/ApiOverview/ContentElements/MigrationListType.html
+        ExtensionManagementUtility::addPiFlexFormValue(
+            '*',
+            'FILE:EXT:ot_flippingbook/Configuration/FlexForm/FlexForm.xml',
+            'ot_flippingbook'
         );
 
         $GLOBALS['TCA']['tt_content']['types']['ot_flippingbook']['showitem'] = '
