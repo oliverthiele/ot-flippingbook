@@ -3,7 +3,7 @@
 Adds a content element to embed [FlippingBook Publisher](https://flippingbook.com/) documents in TYPO3. Catalogs are
 organised in a two-level folder structure; the backend select shows grouped books automatically.
 
-[![TYPO3](https://img.shields.io/badge/TYPO3-13.4-orange.svg)](https://typo3.org/)
+[![TYPO3](https://img.shields.io/badge/TYPO3-14.3-orange.svg)](https://typo3.org/)
 [![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-flippingbook.svg)](https://packagist.org/packages/oliverthiele/ot-flippingbook)
 [![PHP](https://img.shields.io/packagist/dependency-v/oliverthiele/ot-flippingbook/php.svg)](https://php.net/)
 [![License](https://img.shields.io/packagist/l/oliverthiele/ot-flippingbook.svg)](LICENSE)
@@ -22,8 +22,8 @@ organised in a two-level folder structure; the backend select shows grouped book
 
 | Requirement | Version        |
 |-------------|----------------|
-| TYPO3       | ^13.4 \| ^14.3 |
-| PHP         | >=8.2          |
+| TYPO3       | ^14.3          |
+| PHP         | >=8.4          |
 
 ## Installation
 
