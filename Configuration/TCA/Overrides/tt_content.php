@@ -10,8 +10,8 @@ call_user_func(
     static function () {
         ExtensionManagementUtility::addPlugin(
             [
-                'label' => 'LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:wizard.title',
-                'description' => 'LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:wizard.description',
+                'label' => 'ot_flippingbook.be:wizard.title',
+                'description' => 'ot_flippingbook.be:wizard.description',
                 'value' => 'ot_flippingbook',
                 'icon' => 'icon-flippingbook',
                 'group' => 'plugins',
@@ -20,28 +20,25 @@ call_user_func(
             'ot_flippingbook'
         );
 
-        // Official TYPO3 v13.4 list_type-to-CType migration path for FlexForm registration,
-        // see: https://docs.typo3.org/m/typo3/reference-coreapi/13.4/en-us/ApiOverview/ContentElements/MigrationListType.html
-        ExtensionManagementUtility::addPiFlexFormValue(
-            '*',
-            'FILE:EXT:ot_flippingbook/Configuration/FlexForm/FlexForm.xml',
-            'ot_flippingbook'
-        );
+        // Registers the FlexForm data structure. ExtensionManagementUtility::
+        // addPiFlexFormValue() is deprecated since v14 and removed in v15.
+        $GLOBALS['TCA']['tt_content']['types']['ot_flippingbook']['columnsOverrides']['pi_flexform']['config']['ds']
+            = 'FILE:EXT:ot_flippingbook/Configuration/FlexForm/FlexForm.xml';
 
         $GLOBALS['TCA']['tt_content']['types']['ot_flippingbook']['showitem'] = '
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-            --div--;LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:tt_content.tab.configuration,pi_flexform,
-            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
-            --palette--;;language,--div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
-            --palette--;;hidden,--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:categories,
-            --div--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_category.tabs.category,categories,
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,rowDescription,
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended';
+            --div--;core.form.tabs:general,
+            --palette--;frontend.ttc:palette.general;general,
+            --palette--;frontend.ttc:palette.headers;headers,
+            --div--;ot_flippingbook.be:tt_content.tab.configuration,pi_flexform,
+            --div--;frontend.ttc:tabs.appearance,
+            --palette--;frontend.ttc:palette.frames;frames,
+            --palette--;frontend.ttc:palette.appearanceLinks;appearanceLinks,
+            --div--;core.form.tabs:language,
+            --palette--;;language,--div--;core.form.tabs:access,
+            --palette--;;hidden,--palette--;frontend.ttc:palette.access;access,
+            --div--;core.form.tabs:categories,
+            --div--;core.tca:sys_category.tabs.category,categories,
+            --div--;core.form.tabs:notes,rowDescription,
+            --div--;core.form.tabs:extended';
     }
 );
