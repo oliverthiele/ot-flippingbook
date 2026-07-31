@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" target-language="de" datatype="plaintext"
-        original="EXT:ot_flippingbook/Configuration/Sets/OtFlippingbook/labels.xlf"
-        date="2026-05-28T00:00:00Z" product-name="ot-flippingbook">
-    <header/>
-    <body>
-      <trans-unit id="label" resname="label" approved="yes">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+  <file id="ot-flippingbook-labels"
+        original="EXT:ot_flippingbook/Configuration/Sets/OtFlippingbook/labels.xlf">
+    <unit id="label">
+      <segment>
         <source>Content Element: FlippingBook</source>
         <target>Inhaltselement: FlippingBook</target>
-      </trans-unit>
-    </body>
+      </segment>
+    </unit>
   </file>
 </xliff>
