@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] — 2026-07-31
+
+### Changed
+
+- **Breaking:** Drop TYPO3 v13 support, require TYPO3 `^14.3`
+- **Breaking:** Raise the PHP minimum to `>=8.4`
+- Register the FlexForm data structure through the `columnsOverrides` of the
+  `ot_flippingbook` type instead of
+  `ExtensionManagementUtility::addPiFlexFormValue()`, which is deprecated in
+  v14 and removed in v15. Projects on TYPO3 v13 stay on the 2.1 line, where
+  that method is the documented registration path
+- Migrate the language files from XLIFF 1.2 to XLIFF 2.0. Unit identifiers and
+  all translations are unchanged, so no label reference needs adjusting
+- Reference labels via translation domain mapping instead of full file paths:
+  `ot_flippingbook.be:`, `core.form.tabs:`, `core.tca:` and `frontend.ttc:`
+  replace the verbose `LLL:EXT:` references
+
+---
+
 ## [2.1.2] — 2026-07-31
 
 ### Fixed
@@ -64,6 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - FlexForm for book selection and optional start page
 - Extension Configuration for configurable base directory
 
+[3.0.0]: https://github.com/oliverthiele/ot-flippingbook/compare/v2.1.2...v3.0.0
 [2.1.2]: https://github.com/oliverthiele/ot-flippingbook/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/oliverthiele/ot-flippingbook/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/oliverthiele/ot-flippingbook/compare/v2.0.0...v2.1.0

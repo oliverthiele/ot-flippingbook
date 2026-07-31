@@ -6,13 +6,13 @@
         <sDEF>
             <ROOT>
                 <sheetTitle>
-                    LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:tt_content.pi_flexform.sheet_general
+                    ot_flippingbook.be:tt_content.pi_flexform.sheet_general
                 </sheetTitle>
                 <type>array</type>
                 <el>
                     <flippingBook>
                         <label>
-                            LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:tt_content.pi_flexform.sheet_general.flippingBook
+                            ot_flippingbook.be:tt_content.pi_flexform.sheet_general.flippingBook
                         </label>
                         <config>
                             <type>select</type>
@@ -30,7 +30,7 @@
                     </flippingBook>
                     <page>
                         <label>
-                            LLL:EXT:ot_flippingbook/Resources/Private/Language/locallang_be.xlf:tt_content.pi_flexform.sheet_general.page
+                            ot_flippingbook.be:tt_content.pi_flexform.sheet_general.page
                         </label>
                         <config>
                             <type>number</type>
