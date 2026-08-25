@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['ot_flippingbook'] = [
     'title' => 'CE FlippingBooks',
     'description' => 'TYPO3 content element for the integration of documents created with the FlippingBook Publisher (https://flippingbook.com/digital-publishing-software)',
     'category' => 'frontend',
