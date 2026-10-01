@@ -37,7 +37,11 @@
 	},
 	"extra": {
 		"typo3/cms": {
-			"extension-key": "ot_flippingbook"
+			"extension-key": "ot_flippingbook",
+			"version": "3.0.0",
+			"Package": {
+				"providesPackages": {}
+			}
 		}
 	},
 	"support": {

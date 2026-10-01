@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Remove `ext_emconf.php`: TYPO3 14.2+ reads the extension metadata from
+  `composer.json` in classic mode as well (#108345), so the version and
+  `providesPackages` are declared there now
+
 ## [3.0.0] — 2026-07-31
 
 ### Changed
@@ -83,6 +91,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - FlexForm for book selection and optional start page
 - Extension Configuration for configurable base directory
 
+[Unreleased]: https://github.com/oliverthiele/ot-flippingbook/compare/v3.0.0...HEAD
 [3.0.0]: https://github.com/oliverthiele/ot-flippingbook/compare/v2.1.2...v3.0.0
 [2.1.2]: https://github.com/oliverthiele/ot-flippingbook/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/oliverthiele/ot-flippingbook/compare/v2.1.0...v2.1.1
